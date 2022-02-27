@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright Daniel Burruchaga Sola 2022
+# All rights reserved.
+
+# Main 
+
 from Aircraft import Aircraft,Boeing,Airbus
 from Flight import Flight
 from Passenger import Passenger

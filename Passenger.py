@@ -14,11 +14,13 @@ class Passenger(): #Creamos la clase Passenger
 # Definimos el metodo __str__
     def __str__(self):
         return ("name: " + self.__name + " surname: " + self.__surname + " id_card: " + self.__id_card)
-# Definimos el metodo passenger_data
-#Obtains the data of a passenger
-#    Returns:
-#      name: The passenger's name such as 'Jack'
-#      family_name: The passenger's family name such as 'Shephard'
-#      id_card: The passenger's id card such as '85994003S'
+    # Definimos el metodo passenger_data
+    """--------------------------------------------------------
+    Obtains the data of a passenger
+    Returns:
+      name: The passenger's name such as 'Jack'
+      family_name: The passenger's family name such as 'Shephard'
+      id_card: The passenger's id card such as '85994003S'
+    --------------------------------------------------------"""
     def passenger_data(self):
         return (self.__name, self.__surname, self.__id_card)
