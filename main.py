@@ -1,6 +1,6 @@
-import Aircraft
-import Flight
-import Passenger
+from Aircraft import Aircraft,Boeing,Airbus
+from Flight import Flight
+from Passenger import Passenger
 def make_flights():
     f1 = Flight(number = "BA117", aircraft = Aircraft(registration = "G-EUAH", model = "Airbus A319", num_rows = 22, num_seats_per_row=6))
     f2 = Flight(number = "AF92", aircraft = Boeing(registration = "F-GSPS", airline = "Emirates")) 

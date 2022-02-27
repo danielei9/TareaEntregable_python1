@@ -13,10 +13,10 @@ class Aircraft(): #Creamos la clase Passenger
         self.__registration = registration # Definimos que el atributo name,sera el name asig
         self.__num_rows = num_rows # Definimos que el atributo surname, sera el surname asig
         self.__num_seats_per_row = num_seats_per_row # Definimos que el atributo id_card, sera el id_card asig   
-        super().__init__( number, aircraft)     
+        #super().__init__( number, aircraft)     
 # Definimos el metodo __str__
     def __str__(self):
-        return ("model: " + str(self.__model) + " registration: " + str(self.__registration) + " num_rows: " + str(self.__num_rows) + " num_seats_per_wor: " + str( self.__num_seats_per_row))
+        return ( str(self.__registration) + " "+ str(self.__model) )
 # Definimos el metodo get_registration
     def get_registration(self):
         return self.__registration
@@ -31,15 +31,15 @@ class Aircraft(): #Creamos la clase Passenger
     def seating_plan(self):
         template = "ABCDEFGHJKLMÑOPQRSTUVWYZ"
         res = ""
-        for i in range(self.num_seats): # TODO: this Change
+        for i in range(int(self.__num_seats_per_row)): # TODO: this Change
             res += template[i]
         return range(1, self.__num_rows), res
 # Definimos el metodo num_seats
 #Calculates the number of seats
 #Returns:
 #seats: The number of seats
-    def num_seats(self):
-        rows, rowSeats = self.seating_plan()
+    def __num_seats(self):
+        rows, rowSeats = self.__seating_plan()
         return len(rows) * len(rowSeats)
 #*----------------------------------------------------------------*
 #*----------------------------------------------------------------*
