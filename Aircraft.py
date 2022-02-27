@@ -33,13 +33,13 @@ class Aircraft(): #Creamos la clase Passenger
         res = ""
         for i in range(int(self.__num_seats_per_row)): # TODO: this Change
             res += template[i]
-        return range(1, self.__num_rows), res
+        return range(1, self.__num_rows+1), res
 # Definimos el metodo num_seats
 #Calculates the number of seats
 #Returns:
 #seats: The number of seats
-    def __num_seats(self):
-        rows, rowSeats = self.__seating_plan()
+    def num_seats(self):
+        rows, rowSeats = self.seating_plan()
         return len(rows) * len(rowSeats)
 #*----------------------------------------------------------------*
 #*----------------------------------------------------------------*
@@ -83,5 +83,3 @@ class Boeing(Aircraft): #Creamos la clase Passenger
 #*----------------------------------------------------------------*
 #*----------------------------------------------------------------*
 #*----------------------------------------------------------------*
-air = Airbus(registration = "G-EUPT", variant = "A319-100")
-print(air.get_registration())

@@ -8,7 +8,6 @@
 
 from ast import IsNot
 
-
 class Flight(): #Creamos la clase Flight
     def __init__(self, number, aircraft):
         self.__number = number 
@@ -49,11 +48,11 @@ class Flight(): #Creamos la clase Flight
         number_from , letter_from = self.__parse_seat(from_seat)
         number_to , letter_to = self.__parse_seat(to_seat)
        
-        tmp_passenger_from =  self._seating[number_from][str(letter_from)]
-        tmp_passenger_to =  self._seating[number_to][str(letter_to)]
+        tmp_passenger_from =  self.__seating[int(number_from)][str(letter_from)]
+        tmp_passenger_to =  self.__seating[int(number_to)][str(letter_to)]
 
-        self._seating[number_from][str(letter_from)] = tmp_passenger_to
-        self._seating[number_to][str(letter_to)] = tmp_passenger_from
+        self.__seating[int(number_from)][str(letter_from)] = tmp_passenger_to
+        self.__seating[int(number_to)][str(letter_to)] = tmp_passenger_from
         return 1 
     
     """--------------------------------------------------------
@@ -61,13 +60,14 @@ class Flight(): #Creamos la clase Flight
     Returns:
       The number of unoccupied seats  
     --------------------------------------------------------"""    
-    def __num_available_seats(self):
+    def num_available_seats(self):
       count = 0
       for dict in self.__seating:
-        for values in dict:
-          if values == None:
-            count += 1
-        return count
+        if dict is not None:
+          for key in dict:
+            if dict[key] == None:
+              count += 1
+      return count
     
     """--------------------------------------------------------
     Prints in console the seating plan
