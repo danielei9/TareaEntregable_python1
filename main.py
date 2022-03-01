@@ -3,15 +3,20 @@
 # Copyright Daniel Burruchaga Sola 2022
 # All rights reserved.
 
-# Main 
+# Main
 
-from Aircraft import Aircraft,Boeing,Airbus
+from Aircraft import Aircraft, Boeing, Airbus
 from Flight import Flight
 from Passenger import Passenger
+
+
 def make_flights():
-    f1 = Flight(number = "BA117", aircraft = Aircraft(registration = "G-EUAH", model = "Airbus A319", num_rows = 22, num_seats_per_row=6))
-    f2 = Flight(number = "AF92", aircraft = Boeing(registration = "F-GSPS", airline = "Emirates")) 
-    f3 = Flight(number = "BA148", aircraft = Airbus(registration = "G-EUPT", variant = "A319-100")) 
+    f1 = Flight(number="BA117", aircraft=Aircraft(
+        registration="G-EUAH", model="Airbus A319", num_rows=22, num_seats_per_row=6))
+    f2 = Flight(number="AF92", aircraft=Boeing(
+        registration="F-GSPS", airline="Emirates"))
+    f3 = Flight(number="BA148", aircraft=Airbus(
+        registration="G-EUPT", variant="A319-100"))
 
     p1 = Passenger("Jack", "Shephard", "85994003S")
     p2 = Passenger("Kate", "Austen", "12589756P")
@@ -24,10 +29,20 @@ def make_flights():
     f1.allocate_passenger("18E", p3.passenger_data())
     f1.allocate_passenger("1C", p4.passenger_data())
     f1.allocate_passenger("4D", p5.passenger_data())
-
+    f2.allocate_passenger("12A", p1.passenger_data())
+    f2.allocate_passenger("18F", p2.passenger_data())
+    f2.allocate_passenger("18E", p3.passenger_data())
+    f2.allocate_passenger("1C", p4.passenger_data())
+    f2.allocate_passenger("4D", p5.passenger_data())
+    f3.allocate_passenger("12A", p1.passenger_data())
+    f3.allocate_passenger("18F", p2.passenger_data())
+    f3.allocate_passenger("18E", p3.passenger_data())
+    f3.allocate_passenger("1C", p4.passenger_data())
+    f3.allocate_passenger("4D", p5.passenger_data())
     return f1, f2, f3
 
+
 f1, f2, f3 = make_flights()
-for fl in f1, f2, f3:
-  fl.print_seating()
-  fl.print_boarding_cards()
+print("AVAILABILITY")
+print(f1.num_available_seats())
+f1.print_seating()
